@@ -10,14 +10,21 @@ namespace CrossTetris.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class GameView : ContentPage
 	{
-		private BoxView[,] _field;
+		private BoxView[,] _mainField;
+
 		private GameViewModel _gameViewModel;
 
 		public GameView()
 		{
 			_gameViewModel = new GameViewModel();
-			_field = new BoxView[_gameViewModel.N, _gameViewModel.M];
-			_gameViewModel.Game.FieldChanged += () => Draw();
+			_mainField = new BoxView[_gameViewModel.N, _gameViewModel.M];
+
+			_gameViewModel.Game.FieldChanged += () =>
+			{
+				Draw();
+
+				_gameViewModel.PlayerScore = _gameViewModel.Game.PlayerScore;
+			};
 
 			InitializeComponent();
 
@@ -34,13 +41,13 @@ namespace CrossTetris.Views
 
 				for (var j = 0; j < _gameViewModel.M; j++)
 				{
-					_field[i, j] = new BoxView();
+					_mainField[i, j] = new BoxView();
 					
-					Grid.SetRow(_field[i, j], i);
-					Grid.SetColumn(_field[i, j], j);
+					Grid.SetRow(_mainField[i, j], i);
+					Grid.SetColumn(_mainField[i, j], j);
 
 					mainGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = 10 });
-					mainGrid.Children.Add(_field[i, j]);
+					mainGrid.Children.Add(_mainField[i, j]);
 				}
 			}
 		}
@@ -55,9 +62,9 @@ namespace CrossTetris.Views
 					{
 						switch (_gameViewModel.Game.Field[i, j])
 						{
-							case CellType.Empty: _field[i, j].BackgroundColor = Color.Transparent; break;
-							case CellType.Border: _field[i, j].BackgroundColor = Color.Black; break;
-							case CellType.Figure: _field[i, j].BackgroundColor = Color.Red; break;
+							case CellType.Empty: _mainField[i, j].BackgroundColor = Color.Transparent; break;
+							case CellType.Border: _mainField[i, j].BackgroundColor = Color.Black; break;
+							case CellType.Figure: _mainField[i, j].BackgroundColor = Color.Red; break;
 						}
 					}
 				}

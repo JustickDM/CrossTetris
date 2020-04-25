@@ -25,12 +25,13 @@
 		<ToolbarItem Text="E"
 					 Command="{Binding ExitCommand}"/>
 	</ContentPage.ToolbarItems>
-	
+
 	<ContentPage.Content>
 		<StackLayout HorizontalOptions="FillAndExpand"
 					 VerticalOptions="FillAndExpand">
-			<Grid x:Name="mainGrid"
-				  HorizontalOptions="Center"/>
+			<Label Text="{Binding PlayerScore, StringFormat='Score: {0}'}"/>
+			
+			<Grid x:Name="mainGrid"/>
 
 			<Grid>
 				<Grid.RowDefinitions>

@@ -2,7 +2,6 @@
 
 using Tetris.Enums;
 using Tetris.Models;
-using Tetris.Models.Figures;
 
 using Xamarin.Forms;
 
@@ -31,14 +30,14 @@ namespace CrossTetris.ViewModels
 			set => SetProperty(ref _m, value);
 		}
 
-		private int _speed = 1000;
+		private int _speed = 500;
 		public int Speed
 		{
 			get => _speed;
 			set => SetProperty(ref _speed, value);
 		}
 
-		private int _downSpeed = 200;
+		private int _downSpeed = 100;
 		public int DownSpeed
 		{
 			get => _downSpeed;
@@ -65,7 +64,7 @@ namespace CrossTetris.ViewModels
 		public GameViewModel()
 		{
 			Game = new Game(N, M, Speed, DownSpeed);
-			
+
 			ExitCommand = new Command(() =>
 			{
 				if(!Game.IsEndGame)
