@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CrossTetris.Views.GameView">
+
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="buttonStyle" TargetType="Button">
+				<Setter Property="TextColor" Value="Black"/>
+				<Setter Property="BackgroundColor" Value="White"/>
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Text="S"
+					 Command="{Binding StartCommand}"/>
+		<ToolbarItem Text="R"
+					 Command="{Binding RestartCommand}"/>
+		<ToolbarItem Text="P"
+					 Command="{Binding PauseCommand}"/>
+		<ToolbarItem Text="E"
+					 Command="{Binding ExitCommand}"/>
+	</ContentPage.ToolbarItems>
+	
+	<ContentPage.Content>
+		<StackLayout HorizontalOptions="FillAndExpand"
+					 VerticalOptions="FillAndExpand">
+			<Grid x:Name="mainGrid"
+				  HorizontalOptions="Center"/>
+
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+
+				<Button Text="Down"
+						Grid.Column="1"
+						Grid.Row="1"
+						Style="{StaticResource buttonStyle}"
+						Command="{Binding DownCommand}">
+				</Button>
+
+				<Button Text="Left"
+						Grid.Column="0"
+						Grid.Row="1"
+						Style="{StaticResource buttonStyle}"
+						Command="{Binding LeftCommand}">
+				</Button>
+
+				<Button Text="Right"
+						Grid.Column="2"
+						Grid.Row="1"
+						Style="{StaticResource buttonStyle}"
+						Command="{Binding RightCommand}">
+				</Button>
+
+				<Button Text="Turn Left"
+						Grid.Column="1"
+						Grid.Row="0"
+						Style="{StaticResource buttonStyle}"
+						Command="{Binding TurnLeftCommand}">
+				</Button>
+
+				<Button Text="Turn Right"
+						Grid.Column="1"
+						Grid.Row="2"
+						Style="{StaticResource buttonStyle}"
+						Command="{Binding TurnRightCommand}">
+				</Button>
+			</Grid>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

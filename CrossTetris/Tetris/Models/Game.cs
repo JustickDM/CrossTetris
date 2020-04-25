@@ -95,40 +95,6 @@ namespace Tetris.Models
 		}
 
 		/// <summary>
-		/// Функция опускания фигуры на единицу и проверка упала или еще летит
-		/// </summary>
-		public void MakeIteration()
-		{
-			IsEndGame = GetIsEndGame();
-
-			if (!IsEndGame)
-			{
-				if (Field.IsCanSetUpFigure(_figure, _x, _y + 1))
-				{
-					Field.SetUp(_figure, _y, _x, CellType.Empty);
-					_y++;
-					Field.SetUp(_figure, _y, _x, CellType.Figure);
-				}
-				else
-				{
-					Field.SetUp(_figure, _y, _x, CellType.Border);
-					_timer.Interval = _speed;
-
-					PlayerScore += Field.Remove();
-
-					_figure = NextFigure;
-
-					_x = (Field.M - _figure.M) / 2;
-					_y = 1;
-
-					NextFigure = FigureFactory.Create();
-				}
-
-				FieldChanged?.Invoke();
-			}
-		}
-
-		/// <summary>
 		/// Действие пользователя на очередной итерации
 		/// </summary>
 		/// <param name="position">Тип действия</param>
@@ -207,6 +173,40 @@ namespace Tetris.Models
 		#endregion
 
 		#region Private methods
+
+		/// <summary>
+		/// Функция опускания фигуры на единицу и проверка упала или еще летит
+		/// </summary>
+		private void MakeIteration()
+		{
+			IsEndGame = GetIsEndGame();
+
+			if (!IsEndGame)
+			{
+				if (Field.IsCanSetUpFigure(_figure, _x, _y + 1))
+				{
+					Field.SetUp(_figure, _y, _x, CellType.Empty);
+					_y++;
+					Field.SetUp(_figure, _y, _x, CellType.Figure);
+				}
+				else
+				{
+					Field.SetUp(_figure, _y, _x, CellType.Border);
+					_timer.Interval = _speed;
+
+					PlayerScore += Field.Remove();
+
+					_figure = NextFigure;
+
+					_x = (Field.M - _figure.M) / 2;
+					_y = 1;
+
+					NextFigure = FigureFactory.Create();
+				}
+
+				FieldChanged?.Invoke();
+			}
+		}
 
 		/// <summary>
 		/// Проверка на конец игры

@@ -16,11 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\" />
-    <Folder Include="ViewModels\" />
+    <ProjectReference Include="..\Tetris\Tetris.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Tetris\Tetris.csproj" />
+    <EmbeddedResource Update="Views\GameView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

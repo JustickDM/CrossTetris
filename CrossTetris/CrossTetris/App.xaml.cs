@@ -1,6 +1,6 @@
-﻿using System;
+﻿using CrossTetris.Views;
+
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace CrossTetris
 {
@@ -10,7 +10,7 @@ namespace CrossTetris
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
+			MainPage = new NavigationPage(new GameView());
 		}
 
 		protected override void OnStart()

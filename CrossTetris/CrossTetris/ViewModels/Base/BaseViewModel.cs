@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace CrossTetris.ViewModels
+namespace CrossTetris.ViewModels.Base
 {
 	public abstract class BaseViewModel : INotifyPropertyChanged
 	{
