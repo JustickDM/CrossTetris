@@ -19,12 +19,7 @@ namespace CrossTetris.Views
 			_gameViewModel = new GameViewModel();
 			_mainField = new BoxView[_gameViewModel.N, _gameViewModel.M];
 
-			_gameViewModel.Game.FieldChanged += () =>
-			{
-				Draw();
-
-				_gameViewModel.PlayerScore = _gameViewModel.Game.PlayerScore;
-			};
+			_gameViewModel.Game.FieldChanged += () => Draw();
 
 			InitializeComponent();
 

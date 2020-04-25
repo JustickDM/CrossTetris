@@ -20,10 +20,20 @@ namespace Tetris.Models
 
 		public IFigureFactory FigureFactory { get; }
 
+		private int _playerScore;
+
 		/// <summary>
 		/// Счёт игрока
 		/// </summary>
-		public int PlayerScore { get; private set; }
+		public int PlayerScore
+		{
+			get => _playerScore;
+			private set
+			{
+				_playerScore = value;
+				PlayerScoreChanged?.Invoke();
+			}
+		}
 
 		/// <summary>
 		/// Следующая фигура
@@ -55,6 +65,8 @@ namespace Tetris.Models
 		#region Events
 
 		public event Action FieldChanged;
+
+		public event Action PlayerScoreChanged;
 
 		#endregion
 

@@ -64,6 +64,7 @@ namespace CrossTetris.ViewModels
 		public GameViewModel()
 		{
 			Game = new Game(N, M, Speed, DownSpeed);
+			Game.PlayerScoreChanged += () => PlayerScore = Game.PlayerScore;
 
 			ExitCommand = new Command(() =>
 			{
