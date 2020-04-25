@@ -16,8 +16,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Tetris">
-      <HintPath>..\Tetris.dll</HintPath>
-    </Reference>
+    <Folder Include="Views\" />
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Tetris\Tetris.csproj" />
   </ItemGroup>
 </Project>

@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossTetris.Android", "Cros
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossTetris.iOS", "CrossTetris\CrossTetris.iOS\CrossTetris.iOS.csproj", "{06BFF119-D8EB-4C52-B7B6-B01793D562D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossTetris", "CrossTetris\CrossTetris\CrossTetris.csproj", "{F626ECF4-CB7E-467C-918F-7DF148544157}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossTetris", "CrossTetris\CrossTetris\CrossTetris.csproj", "{F626ECF4-CB7E-467C-918F-7DF148544157}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tetris", "CrossTetris\Tetris\Tetris.csproj", "{B698F521-1B3B-489E-8710-7D63E853821A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +75,18 @@ Global
 		{F626ECF4-CB7E-467C-918F-7DF148544157}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{F626ECF4-CB7E-467C-918F-7DF148544157}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{F626ECF4-CB7E-467C-918F-7DF148544157}.Release|iPhoneSimulator.Deploy.0 = Release|Any CPU
+		{B698F521-1B3B-489E-8710-7D63E853821A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B698F521-1B3B-489E-8710-7D63E853821A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B698F521-1B3B-489E-8710-7D63E853821A}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{B698F521-1B3B-489E-8710-7D63E853821A}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{B698F521-1B3B-489E-8710-7D63E853821A}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{B698F521-1B3B-489E-8710-7D63E853821A}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{B698F521-1B3B-489E-8710-7D63E853821A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B698F521-1B3B-489E-8710-7D63E853821A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B698F521-1B3B-489E-8710-7D63E853821A}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{B698F521-1B3B-489E-8710-7D63E853821A}.Release|iPhone.Build.0 = Release|Any CPU
+		{B698F521-1B3B-489E-8710-7D63E853821A}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{B698F521-1B3B-489E-8710-7D63E853821A}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
