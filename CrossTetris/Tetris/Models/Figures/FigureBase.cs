@@ -5,8 +5,8 @@ namespace Tetris.Models.Figures
 	public abstract class FigureBase
 	{
 		public int[,] FigureArray { get; private set; }
-		public int N { get; private set; }
-		public int M { get; private set; }
+		public int N => FigureArray.GetLength(0);
+		public int M => FigureArray.GetLength(1);
 		public FigureType FigureType { get; }
 
 		public int this[int i, int j] => FigureArray[i, j];
@@ -14,8 +14,6 @@ namespace Tetris.Models.Figures
 		public FigureBase(int[,] figureArray, FigureType figureType)
 		{
 			FigureArray = figureArray;
-			N = figureArray.GetLength(0);
-			M = figureArray.GetLength(1);
 			FigureType = figureType;
 		}
 
@@ -42,7 +40,6 @@ namespace Tetris.Models.Figures
 				}
 			}
 
-			var r = N; N = M; M = r;
 			FigureArray = temp;
 		}
 	}
