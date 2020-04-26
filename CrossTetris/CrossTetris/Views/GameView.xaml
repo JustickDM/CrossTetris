@@ -31,9 +31,11 @@
 					 VerticalOptions="FillAndExpand">
 			<Label Text="{Binding PlayerScore, StringFormat='Score: {0}'}"/>
 			
-			<Grid x:Name="mainGrid"/>
+			<Grid x:Name="mainGrid"
+				  HorizontalOptions="Center"/>
 
-			<Grid>
+			<Grid ColumnSpacing="15"
+				  RowSpacing="15">
 				<Grid.RowDefinitions>
 					<RowDefinition />
 					<RowDefinition />

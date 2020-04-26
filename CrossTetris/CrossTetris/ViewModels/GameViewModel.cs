@@ -1,4 +1,7 @@
 ﻿using CrossTetris.ViewModels.Base;
+using CrossTetris.Views.Popups;
+
+using Rg.Plugins.Popup.Services;
 
 using Tetris.Enums;
 using Tetris.Models;
@@ -84,11 +87,14 @@ namespace CrossTetris.ViewModels
 			{
 				Game.Restart();
 			});
-			PauseCommand = new Command(() =>
+			PauseCommand = new Command(async () =>
 			{
 				if (!Game.IsEndGame)
 				{
 					Game.Pause();
+
+					await PopupNavigation.Instance.PushAsync(new GamePausedView());
+					await Xamarin.Essentials.TextToSpeech.SpeakAsync("Игра на паузе, Motherfucker!");
 				}
 			});
 			DownCommand = new Command(() =>
@@ -124,6 +130,14 @@ namespace CrossTetris.ViewModels
 				if (!Game.IsEndGame)
 				{
 					Game.Action(ActionType.TurnRight);
+				}
+			});
+
+			MessagingCenter.Subscribe<GamePausedView>(this, MessagesEnum.Unpause, (obj) =>
+			{
+				if (!Game.IsEndGame)
+				{
+					Game.Pause();
 				}
 			});
 		}

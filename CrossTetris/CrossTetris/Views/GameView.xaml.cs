@@ -1,7 +1,10 @@
 ﻿using CrossTetris.ViewModels;
 
+using System;
+
 using Tetris.Enums;
 
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -23,9 +26,18 @@ namespace CrossTetris.Views
 
 			InitializeComponent();
 
+			Accelerometer.ReadingChanged += Accelerometer_ReadingChanged;
+
 			SetItems();
 
 			BindingContext = _gameViewModel;
+		}
+
+		private void Accelerometer_ReadingChanged(object sender, AccelerometerChangedEventArgs e)
+		{
+			var data = e.Reading;
+			Console.WriteLine($"Reading: X: {data.Acceleration.X}, Y: {data.Acceleration.Y}, Z: {data.Acceleration.Z}");
+			// Process Acceleration X, Y, and Z
 		}
 
 		private void SetItems()
