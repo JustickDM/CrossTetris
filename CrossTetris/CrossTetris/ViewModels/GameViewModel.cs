@@ -12,40 +12,15 @@ namespace CrossTetris.ViewModels
 {
 	public sealed class GameViewModel : BaseViewModel
 	{
-		private Game _game;
-		public Game Game
-		{
-			get => _game;
-			set => SetProperty(ref _game, value);
-		}
+		public Game Game { get; }
 
-		private int _n = 18;
-		public int N
-		{
-			get => _n;
-			set => SetProperty(ref _n, value);
-		}
+		public int N { get; } = 18;
 
-		private int _m = 12;
-		public int M
-		{
-			get => _m;
-			set => SetProperty(ref _m, value);
-		}
+		public int M { get; } = 12;
 
-		private int _speed = 500;
-		public int Speed
-		{
-			get => _speed;
-			set => SetProperty(ref _speed, value);
-		}
+		public int Speed { get; } = 500;
 
-		private int _downSpeed = 100;
-		public int DownSpeed
-		{
-			get => _downSpeed;
-			set => SetProperty(ref _downSpeed, value);
-		}
+		public int DownSpeed { get; } = 100;
 
 		private int _playerScore;
 		public int PlayerScore
@@ -54,15 +29,15 @@ namespace CrossTetris.ViewModels
 			set => SetProperty(ref _playerScore, value);
 		}
 
-		public Command ExitCommand { get; set; }
-		public Command StartCommand { get; set; }
-		public Command RestartCommand { get; set; }
-		public Command PauseCommand { get; set; }
-		public Command DownCommand { get; set; }
-		public Command LeftCommand { get; set; }
-		public Command RightCommand { get; set; }
-		public Command TurnLeftCommand { get; set; }
-		public Command TurnRightCommand { get; set; }
+		public Command ExitCommand { get; }
+		public Command StartCommand { get; }
+		public Command RestartCommand { get; }
+		public Command PauseCommand { get; }
+		public Command DownCommand { get; }
+		public Command LeftCommand { get; }
+		public Command RightCommand { get; }
+		public Command TurnLeftCommand { get; }
+		public Command TurnRightCommand { get; }
 
 		public GameViewModel()
 		{
@@ -94,7 +69,7 @@ namespace CrossTetris.ViewModels
 					Game.Pause();
 
 					await PopupNavigation.Instance.PushAsync(new GamePausedView());
-					await Xamarin.Essentials.TextToSpeech.SpeakAsync("Игра на паузе, Motherfucker!");
+					//await Xamarin.Essentials.TextToSpeech.SpeakAsync("Игра на паузе, Motherfucker!");
 				}
 			});
 			DownCommand = new Command(() =>
